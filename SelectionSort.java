@@ -8,14 +8,17 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] list = RandomListGenerator.getRandomIntArray(100, 0, 1000);
+        int[] list = RandomListGenerator.getRandomIntArray(100000, 0, 1000);
+        int swaps = 0;
+
+        long startTime = System.currentTimeMillis();
 
         // courtesy Rosetta Code
-        for(int currentPlace = 0; currentPlace<list.length-1; currentPlace++){
+        for(int currentPlace = 0; currentPlace < list.length - 1; currentPlace++){
             int smallest = Integer.MAX_VALUE;
-            int smallestAt = currentPlace+1;
-            for(int check = currentPlace; check<list.length;check++){
-                if(list[check]<smallest){
+            int smallestAt = currentPlace + 1;
+            for(int check = currentPlace; check < list.length; check++){
+                if(list[check] < smallest){
                     smallestAt = check;
                     smallest = list[check];
                 }
@@ -23,11 +26,17 @@ public class SelectionSort {
             int temp = list[currentPlace];
             list[currentPlace] = list[smallestAt];
             list[smallestAt] = temp;
+            swaps++;
         }
 
-        for(int i : list){
-            System.out.print(i + " ");
-        }
+        long stopTime = System.currentTimeMillis();
+
+        System.out.println("Swaps = " + swaps);
+        System.out.println("elapsed time = " + (stopTime - startTime));
+    
+        // for(int i : list){
+        //     System.out.print(i + " ");
+        // }
     }
 
 }

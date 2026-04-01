@@ -10,23 +10,28 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         
-        int[] list = RandomListGenerator.getRandomIntArray(100, 1, 1000);
+        int[] list = RandomListGenerator.getRandomIntArray(100000, 1, 1000);
 
-        // courtesy Rosetta Code
-        for(int i = 1; i < list.length; i++){
-            int value = list[i];
-            int j = i - 1;
-            while(j >= 0 && list[j] > value){
-                list[j + 1] = list[j];
-                j = j - 1;
+        long swaps = 0;
+        long startTime = System.currentTimeMillis();
+
+        // courtesy Rosetta Code, modified DA
+        for(int currentPlace = 1; currentPlace < list.length; currentPlace++){
+            int value = list[currentPlace];
+            int check = currentPlace - 1;
+            while(check >= 0 && list[check] > value){
+                list[check + 1] = list[check];
+                swaps++;
+                check = check - 1;
             }
-            list[j + 1] = value;
+            list[check + 1] = value;
         }
-    
-        for(int i : list){
-            System.out.print(i + " ");
-        }
+        long stopTime = System.currentTimeMillis();
+        System.out.println("Swaps = " + swaps);
+        System.out.println("elapsed time = " + (stopTime - startTime) + " ms");
 
-
+        // for(int i : list){
+        //     System.out.print(i + " ");
+        // }
     }
 }
