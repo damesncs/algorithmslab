@@ -1,7 +1,7 @@
 public class HeapSort {
     public static void main(String[] args) {
         
-        int[] list = RandomListGenerator.getRandomIntArray(100000, 0, 1000);
+        int[] list = RandomListGenerator.getRandomIntArray(100000, 0, 100000);
 
         long startTime = System.currentTimeMillis();
         heapSort(list);
@@ -9,7 +9,6 @@ public class HeapSort {
         
         System.out.println("elapsed time = " + (stopTime - startTime) + " ms");
     }
-
     // courtesy Rosetta Code
     public static void heapSort(int[] a){
         int count = a.length;

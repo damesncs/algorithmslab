@@ -8,7 +8,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] list = RandomListGenerator.getRandomIntArray(100000, 0, 1000);
+        int[] list = RandomListGenerator.getRandomIntArray(100000, 0, 100000);
         int swaps = 0;
 
         long startTime = System.currentTimeMillis();

@@ -10,7 +10,7 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         
-        int[] list = RandomListGenerator.getRandomIntArray(100000, 1, 1000);
+        int[] list = RandomListGenerator.getRandomIntArray(100000, 1, 100000);
 
         long swaps = 0;
         long startTime = System.currentTimeMillis();
